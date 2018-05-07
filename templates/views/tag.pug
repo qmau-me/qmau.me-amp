@@ -1,0 +1,28 @@
+extends ../layouts/default
+include ../mixins/post
+
+block head
+	meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+	meta(name='author', content='Mầu Hà Quang')
+	meta(property='og:url', content='https://qmau.me/tag/' + data.tag.key )
+	meta(property='og:type', content='article')
+	meta(property='og:title', content= data.tag.name + " | Blog của Mầu")
+	meta(property='og:site_name', content='Blog của Mầu')
+	link(rel='amphtml', href='https://amp.qmau.me/tag/' + data.tag.key)
+	if data.tag.name
+		title #{data.tag.name} | Blog của Mầu
+	else
+		title Blog | Blog của Mầu
+
+
+block content
+	h1.ui.huge.header ##{data.tag.name}
+	.ui.very.relaxed.divided.loop.items
+		if data.posts.results
+			each post in data.posts.results
+				+post(post)
+
+block js
+	script(type='application/ld+json').
+		{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"Blog","@id":"https://qmau.me/","name":"Blog của Mầu","image":"http://qmau.me/favicon.ico"}},{"@type":"ListItem","position":2,"item":{"@id":"https://qmau.me/tag/#{data.tag.key}","name":"#{data.tag.name}","image":"http://qmau.me/favicon.ico"}}]}
+

@@ -1,0 +1,297 @@
+extends ../layouts/default
+include ../mixins/post
+include ../mixins/topimg
+
+block head
+	title Bucket list | Blog của Mầu
+	meta(name='Description', content='Mau Ha Quang | Bucket-list')
+	meta(name='author', content='Mầu Hà Quang')
+	meta(property='og:url', content='https://qmau.me/bucket-list/')
+	meta(property='og:type', content='article')
+	meta(property='og:title', content='Bucket list | Blog của Mầu')
+	meta(property='og:image', content='https://qmau.me/favicon.svg' )
+	meta(property='og:site_name', content='Blog của Mầu')
+	meta(property='og:description', content="Mau Ha Quang bucket list")
+	meta(name='Description', content="Mau Ha Quang bucket list")
+	link(rel='amphtml', href='https://amp.qmau.me/bucket-list/')
+	style.
+		.full.height > .ui.masthead.segment:after {
+			background-image: url("/uploads/404.png");
+		}
+block bighead
+	.chap-main-slider.swiper-container
+		.swiper-wrapper
+			.swiper-slide.swiper-slide-active
+				#chap_slide-slide-1715.ui.slide.left.aligned.middle.aligned.container
+					.ui.large.inverted.header(role='heading', aria-level='2')
+						amp-img.custom-logo(width='53', height='53', src='/favicon.svg', alt='qmau.me')
+						strong Bucket
+						|  list
+					p.inverted.dot-ellipsis.dot-resize-update
+						| Last updated @ 04/23/2018
+block content
+	.ui.relaxed.list
+		.item
+			.ui.read-only.checked.checkbox
+				input(type='checkbox', checked='')
+				label 1. Live in another country
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 2. Watch a soccer game at Old Trafford
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 3. Watch a world cup final
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 4. Attend TED
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox', checked='')
+				label 5. Be students president
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 6. 100km trip by bike
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox', checked='')
+				label 7. Start my own blog
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox', checked='')
+				label 8. Get a part-time job
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox', checked='')
+				label 9. Conquer Fansipan
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 10. Conquer Mt. Fuji
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 11. Everest base camp
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 12. Buy a car
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 13. Buy a house
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox', checked='')
+				label 14. Sleep outdoor
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 15. 100k page views blog
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 16. Start my own business
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox', checked='')
+				label 17. Get ears pierced
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 18. Get a tattoo
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 19. Couch surfing
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 20. Visit Sicily, Italy
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox', checked='')
+				label 21. Visit an island
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox', checked='')
+				label 22. Being on a camp
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 23. Visit Beijing
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 23. Visit Hongkong
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 24. Visit Okinawa
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox', checked='')
+				label 25. Sleep in the forest
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox', checked='')
+				label 26. Travel alone
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 27. Visit India
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 28. Reads 500 books
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox', checked='')
+				label 29. Be on a camp
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 30. Cook well
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 31. Record a podcast
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 32. Bungee jump
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 33. Go abroad for a concert
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 34. Finish 10 online courses
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox', checked='')
+				label 35. Be financial indepent
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 36. Visit Great Pyramid of Giza, Egypt
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox', checked='')
+				label 37. Ask a stranger's number
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 38. Be on school website
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 39. Be on national TV
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox', checked='')
+				label 40. Dancing in the rain
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox', checked='')
+				label 41. Dancing on stage
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 42. Visit 20 countries
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 43. Get >1x stars project on git
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 44. Overseas trip with family
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 45. Learn to play a music instrument
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 46. Sail a boat
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 47. Get AWS certified
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 48. JLPT N1
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 49. Master degree
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox', checked='')
+				label 50. Build a 100 users per day service
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 51. TOEIC or IELTS certified
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox', checked='')
+				label 52. Watch a basketball match
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 53. Watch a baseball match
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 54. Donate blood
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 55. Visit Harry Potter castle
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 56. Witness an eclipse
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 57. Volunteer abroad
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 58. Run a marathon
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 59. Get a sport bike
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox', checked='')
+				label 60. Have a conversation with stranger at cafe
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 61. Be in ultra festival
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 62. Travel in a helicopter
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 63. Fly first class
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 64. Get a driver license
+		.item
+			.ui.checked.checkbox
+				input(type='checkbox')
+				label 65. Get a followed playlist on Spotify

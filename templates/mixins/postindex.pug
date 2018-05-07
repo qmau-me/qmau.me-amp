@@ -1,0 +1,16 @@
+mixin postindex(post)
+	a.ui.middle.aligned.stackable.grid.text.container#postitem(style="border:none; position: relative; margin-bottom: 20px; font-family: 'Open Sans';" href="/blog/post/" + post.slug)
+		.six.wide.left.floated.column
+			img.ui.medium.bordered.rounded.image(src= post.image.url, alt= post.title, title= post.title)
+		.eight.wide.column.left.floated(style="height:250px;")
+			h3.ui.header #{post.title}
+			p(style="font-size: 1em")
+				| #{post.content.brief.md}
+			span.right.floated(style="bottom:0; position: absolute; color: black;")
+				| @ #{post._.publishedDate.format('MM/D')} on
+				each cat, i in post.categories
+					|  #{cat.name}
+					if i < post.categories.length - 1
+						| ,
+					else
+						|

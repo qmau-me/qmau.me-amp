@@ -1,0 +1,10 @@
+mixin postnoimage(post)
+	article
+		.mb3.md-mx0
+			a.text-decoration-none.hasimg(href='/blog/post/' + post.slug)
+				h2.h3 #{post.title}
+			time.block.mb2(datetime=post._.publishedDate.format("YYYY-DD-MMTHH:MM:SS+09:00")) #{post._.publishedDate.format("MMMM D, YYYY")}
+			p.mb2
+				| #{post.content.brief.md}
+			a.commerce-blog-link.inline-block.h7.md-mb4(href='/blog/post/' + post.slug) read more
+

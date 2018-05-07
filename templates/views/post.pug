@@ -1,0 +1,142 @@
+extends ../layouts/default
+include ../mixins/amp-style
+
+block head
+	+amp-style
+	script(async='', custom-element='amp-facebook-comments', src='https://cdn.ampproject.org/v0/amp-facebook-comments-0.1.js')
+	script(async='', custom-element='amp-youtube', src='https://cdn.ampproject.org/v0/amp-youtube-0.1.js')
+	script(async='', custom-element="amp-gist", src="https://cdn.ampproject.org/v0/amp-gist-0.1.js")
+	link(rel='canonical', href='https://qmau.me/blog/post/' + data.post.slug)
+
+block body
+	article
+		figure.ampstart-image-fullpage-hero.m0.relative.mb4
+		.mt3
+			h1.h3= data.post.title
+			time.block.mb2(datetime=data.post._.publishedDate.format("YYYY-DD-MMTHH:MM:SS+09:00")) #{data.post._.publishedDate.format("MMMM D, YYYY")}
+			| 🔖
+			each tag, tag_i in data.post.tags
+				a(href='/tag/' + tag.key) ##{tag.name}
+			br
+			br
+			strong.mb5= data.post.content.brief.md
+			br
+			br
+		.flex
+			.fixed-container-img
+				amp-img.contain(layout='fill', src=data.post.image.url alt=data.post.title)
+					.commerce-loader(placeholder='')
+		br
+		p.mb2
+			!=data.post.content.full
+
+		section.ampstart-related-section.mb2
+			ul.ampstart-related-section-items.list-reset.flex.flex-wrap.m0
+				if data.prevPost[0]
+					li.col-18.sm-col-6.md-col-6.lg-col-6.pr3.py3
+						figure.ampstart-image-with-caption.m0.relative.mb4
+							a.text-decoration-none(href='/blog/post/' + data.prevPost[0].slug)
+								figcaption.h5.mt1.px3
+									| ←　#{data.prevPost[0].title}
+
+				if data.nextPost[0]
+					li.col-18.sm-col-6.md-col-6.lg-col-6.pr3.py3
+						figure.ampstart-image-with-caption.m0.relative.mb4
+							a.text-decoration-none(href='/blog/post/' + data.nextPost[0].slug)
+								figcaption.h5.mt1.px3
+									| #{data.nextPost[0].title}　→
+		//a.right.floated.right.aligned.mca.column(href='/blog/post/' + data.nextPost[0].slug)
+		//	.ui.link.items
+		//		.item
+		//			.middle.aligned.content
+		//				.header #{data.nextPost[0].title}
+		//				.meta
+		//					span Next post
+		//					span
+		//						i.small.right.chevron.icon
+		//article.markdown-body.hentry
+		//	h1.invisible.entry-title #{data.post.title}
+		//	.invisible
+		//		span
+		//			time.date.updated(title=data.post._.publishedDate.format("YYYY-DD-MMTHH:MM:SS+09:00"), datetime=data.post._.publishedDate.format("YYYY-DD-MMTHH:MM:SS+09:00")) #{data.post._.publishedDate.format("MMMM D, YYYY")}
+		//		span.byline  in
+		//		span.byline.author.vcard
+		//			each cat, cat_i in data.post.categories
+		//				a.fn.nickname(href="/") Mầu
+		//	unless data.post.img
+		//		.ui.huge.header
+		//			| #{data.post.title}
+		//			.meta.sub.header
+		//				span
+		//					time.date.updated(title=data.post._.publishedDate.format("YYYY-DD-MMTHH:MM:SS+09:00"), datetime=data.post._.publishedDate.format("YYYY-DD-MMTHH:MM:SS+09:00")) #{data.post._.publishedDate.format("MMMM D, YYYY")}
+		//				span.byline  in
+		//				span.byline.author.vcard
+		//					each cat, cat_i in data.post.categories
+		//						a.fn.nickname(href="/blog/" + cat.key)  #{cat.name}
+		//						if cat_i < data.post.categories.length - 1
+		//							| ,
+		//						else
+		//							|
+		//	!= data.post.content.full
+		//.ui.hidden.clearing.divider
+		//.ui.hidden.divider
+		//.ui.left.floated.basic.paddingless.marginless.segment
+		//	.ui.large.horizontal.right.floated.category.meta.labels
+		//		if data.post.categories
+		//			.ui.transparent.label
+		//				i.large.folder.icon
+		//			each cat, cat_i in data.post.categories
+		//				a.ui.label(href="/blog/" + cat.key)  #{cat.name}
+		//				if cat_i < data.post.categories.length - 1
+		//					| |
+		//				else
+		//					|
+		//	.ui.large.horizontal.right.floated.tags.meta.labels
+		//		if data.post.tags
+		//			.ui.transparent.label
+		//				i.large.tags.icon
+		//			each tag, tag_i in data.post.tags
+		//				a.ui.label(href='/tag/' + tag.key)= tag.name
+		//.ui.hidden.clearing.divider
+		//.ui.hidden.divider
+		//.ui.red.secondary.author.segment
+		//	.ui.marginless.items
+		//		.item
+		//			.ui.tiny.image
+		//				img.avatar.photo(alt='', src='https://scontent-nrt1-1.xx.fbcdn.net/v/t1.0-9/27858217_10213554048239836_1969830389812619578_n.jpg?_nc_cat=0&_nc_eui2=v1%3AAeGrUcH0FOAfMD1x756xVwNoixWrnHBB7-iOjP8xjZlngqDjlfbTqwveUI72Eer4m6fW8EShZLJdOeaudhDIeiQDdSQfhu0YlkTiuxdbyItmhQ&oh=ed645245eb1c004792deabb4e794b3be&oe=5B6AC483', srcset='https://scontent-nrt1-1.xx.fbcdn.net/v/t1.0-9/27858217_10213554048239836_1969830389812619578_n.jpg?_nc_cat=0&_nc_eui2=v1%3AAeGrUcH0FOAfMD1x756xVwNoixWrnHBB7-iOjP8xjZlngqDjlfbTqwveUI72Eer4m6fW8EShZLJdOeaudhDIeiQDdSQfhu0YlkTiuxdbyItmhQ&oh=ed645245eb1c004792deabb4e794b3be&oe=5B6AC483', height='96', width='96')
+		//			.middle.aligned.content
+		//				.header Mầu
+		//				.marginless.meta
+		//					span Posted on:
+		//					time.date.updated(title=data.post._.publishedDate.format("YYYY-DD-MMTHH:MM:SS+09:00"), datetime=data.post._.publishedDate.format("YYYY-DD-MMTHH:MM:SS+09:00")) #{data.post._.publishedDate.format("MMMM D, YYYY")}
+		//				.description
+		//				.extra
+		//					.ui.horizontal.link.list
+		//						a.item(href='/')
+		//							i.archive.icon
+		//							| qmau.me
+		//	.ui.small.red.bottom.right.attached.label
+		//		.marginless.sub.header Post author
+		//.ui.section.divider
+		//.ui.two.column.middle.aligned.stackable.divided.post-nav.grid
+		//	if data.prevPost[0]
+		//		a.left.floated.mca.column(href='/blog/post/' + data.prevPost[0].slug)
+		//			.ui.link.items
+		//				.item
+		//					.middle.aligned.content
+		//						.header #{data.prevPost[0].title}
+		//						.meta
+		//							span
+		//								i.small.left.chevron.icon
+		//							span Previous post
+		//	if data.nextPost[0]
+		//		a.right.floated.right.aligned.mca.column(href='/blog/post/' + data.nextPost[0].slug)
+		//			.ui.link.items
+		//				.item
+		//					.middle.aligned.content
+		//						.header #{data.nextPost[0].title}
+		//						.meta
+		//							span Next post
+		//							span
+		//								i.small.right.chevron.icon
+		amp-facebook-comments(width='486', height='657', layout='responsive', data-width="100%", data-numposts='5', data-href='https://qmau.me/blog/post/' + data.post.slug)

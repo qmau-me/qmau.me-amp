@@ -1,0 +1,9 @@
+include ./postimg
+include ./postnoimage
+
+mixin post(post)
+	if post.img
+		+postimg(post)
+	else
+		+postnoimage(post)
+

@@ -1,0 +1,14 @@
+extends ../layouts/default
+include ../mixins/post
+include ../mixins/amp-style
+
+block head
+	link(rel='canonical', href='https://qmau.me/blog/' + data.category.key)
+	+amp-style
+
+block body
+	h1.xs-hide.sm-hide.md-commerce-header.h3.md-py2.md-mb4 #{data.category.name}
+	if data.posts.results
+		each post in data.posts.results
+			+post(post)
+

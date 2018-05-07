@@ -1,0 +1,15 @@
+extends ../layouts/default
+include ../mixins/post
+include ../mixins/amp-style
+
+block head
+	title Commerce
+	link(rel='canonical', href='https://qmau.me/')
+	+amp-style
+
+block body
+	h1.xs-hide.sm-hide.md-commerce-header.h3.md-py2.md-mb4 Posts
+	if data.posts.length > 0
+		each post in data.posts
+			+post(post)
+
