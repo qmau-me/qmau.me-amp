@@ -2,6 +2,7 @@ extends ../layouts/default
 include ../mixins/amp-style
 
 block head
+	title #{data.post.title} - qmau.me
 	+amp-style
 	script(async='', custom-element='amp-facebook-comments', src='https://cdn.ampproject.org/v0/amp-facebook-comments-0.1.js')
 	script(async='', custom-element='amp-youtube', src='https://cdn.ampproject.org/v0/amp-youtube-0.1.js')
