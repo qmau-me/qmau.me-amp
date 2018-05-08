@@ -1,6 +1,8 @@
 # qmau.me-amp ⚡
 AMP version of qmau.me
+
 Site: https://qmau.me
+
 Responsive design blog using [Google AMP](https://www.ampproject.org/) (Accelerated Mobile Pages) to speed up page load-time for mobile users.
 
 # In case you want to run or customize this project
@@ -26,9 +28,9 @@ git clone git@github.com:qmau-me/qmau.me-amp.git
 2. Update admin account 
 ```bash
 mkdir updates
+cd updates
 vi 0.0.1-admins.js
 ```
-`0.0.1-admins.js`
 ```js
 exports.create = {
 	User: [
@@ -40,8 +42,6 @@ exports.create = {
 ```bash
 vi .env
 ```
-
-`.env`
 ```
 COOKIE_SECRET= [YOUR_SECRET_CODE]
 PORT = [PORT] #default port is 3000
