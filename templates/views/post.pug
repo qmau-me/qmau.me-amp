@@ -1,48 +1,69 @@
 extends ../layouts/default
+include ../mixins/sidebar
 include ../mixins/amp-style
-include ../mixins/ascii
 
 block head
-	title #{data.post.title} - qmau.me
-	+amp-style
-	script(async='', custom-element='amp-facebook-comments', src='https://cdn.ampproject.org/v0/amp-facebook-comments-0.1.js')
-	link(rel='canonical', href='https://qmau.me/blog/post/' + data.post.slug)
-	link(href='https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700', rel='stylesheet')
+  title #{data.post.title} + "- qmau.me"
+  script(async='', custom-element='amp-facebook-like', src='https://cdn.ampproject.org/v0/amp-facebook-like-0.1.js')
+  script(async='', custom-element='amp-facebook-comments', src='https://cdn.ampproject.org/v0/amp-facebook-comments-0.1.js')
+  script(async='', custom-element='amp-social-share', src='https://cdn.ampproject.org/v0/amp-social-share-0.1.js')
+  meta(name='description', content= data.post.content.brief.md )
+  link(rel='canonical', href='/blog/post' + data.post.slug)
+  // Schema.org markup for Google+
+  meta(itemprop='name', content= data.post.title + "- qmau.me")
+  meta(itemprop='description', content= data.post.content.brief.md)
+  meta(itemprop='image', content= data.post.image.url)
+  // Twitter Card data
+  meta(name='twitter:title', content= data.post.title + "- qmau.me")
+  meta(name='twitter:description', content= data.post.content.brief.md )
+  meta(name='twitter:image', content= data.post.image.url)
+  meta(name='twitter:image:alt', content='Blog của Mầu - qmau.me')
+  // Open Graph data
+  meta(property='og:title', content= data.post.title + "- qmau.me")
+  meta(property='og:type', content='article')
+  meta(property='og:image', content= data.post.image.url)
+  meta(property='og:url', content='http://localhost:9000/amp-ads/basic_ads/banner_ad/preview/')
+  meta(property='og:description', content= data.post.content.brief.md )
+  meta(property='og:site_name', content='Blog của Mầu - qmau.me')
+  meta(property='article:published_time', content='2018-05-10T09:14:40.303Z')
+  meta(property='article:modified_time', content='2018-05-10T09:14:40.303Z')
+  link(href='https://fonts.googleapis.com/css?family=Inconsolata|Montserrat', rel='stylesheet')
+  link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700')
+  +amp-style
 block body
-	article
-		figure
-		.mt3
-			h1.h3= data.post.title
-			time.block.mb2(datetime=data.post._.publishedDate.format("YYYY-DD-MMTHH:MM:SS+09:00")) #{data.post._.publishedDate.format("MMMM D, YYYY")}
-			| 🔖
-			each tag, tag_i in data.post.tags
-				a(href='/tag/' + tag.key) ##{tag.name}
-			br
-			br
-			strong.mb5= data.post.content.brief.md
-			br
-			br
-		.flex
-			.fixed-container-img
-				amp-img.contain(layout='fill', src=data.post.image.url alt=data.post.title)
-					.commerce-loader(placeholder='')
-		br
-		p.mb2
-			!=data.post.content.full
-
-		section.ampstart-related-section.mb2
-			ul.ampstart-related-section-items.list-reset.flex.flex-wrap.m0
-				if data.prevPost[0]
-					li.col-18.sm-col-6.md-col-6.lg-col-6.pr3.py3
-						figure.ampstart-image-with-caption.m0.relative.mb4
-							a.text-decoration-none(href='/blog/post/' + data.prevPost[0].slug)
-								figcaption.h5.mt1.px3
-									| ←　#{data.prevPost[0].title}
-
-				if data.nextPost[0]
-					li.col-18.sm-col-6.md-col-6.lg-col-6.pr3.py3
-						figure.ampstart-image-with-caption.m0.relative.mb4
-							a.text-decoration-none(href='/blog/post/' + data.nextPost[0].slug)
-								figcaption.h5.mt1.px3
-									| #{data.nextPost[0].title}　→
-		amp-facebook-comments(width='486', height='657', layout='responsive', data-width="100%", data-numposts='5', data-href='https://qmau.me/blog/post/' + data.post.slug)
+  header#top-header.www-header.center
+    h1.mb1 #{data.post.title}
+    time.block.mb4.caps.text-decoration-none(datetime=data.post._.publishedDate.format("YYYY-DD-MMTHH:MM:SS+09:00")) #{data.post._.publishedDate.format("MMMM D, YYYY")}
+    .www-index-header-action.mx-auto
+      each cat in data.post.categories
+        a.ampstart-btn.ampstart-btn-secondary.caps.mb1.mx2.text-decoration-none.inline-block(href='/blog/' + cat.key) #{cat.name}
+  amp-selector(layout='container')
+    main.flex.pl2.mt1
+      aside.www-components-sec-nav.col-2.xs-hide.sm-hide.relative
+        +sidebar(data)
+      article.www-components.flex-auto.col-8
+        section.www-component-desc
+          p.mb2.px1
+            !=data.post.content.full
+        section.www-component-desc
+          p.mb2.px1
+            strong Tags:
+            =" "
+            each tag in data.post.tags
+              a(href='/tag/' + tag.key)
+                code ##{tag.name}
+              =" "
+        section.www-component-desc
+          p.mb2.px1
+            amp-facebook-like(width='90', height='20', layout='fixed', data-layout='button_count', data-href='https://qmau.me/blog/post/' + data.post.slug)
+            br
+            amp-social-share(type='email')
+            amp-social-share(type='facebook', data-param-app_id='1732945056797326')
+            amp-social-share(type='gplus')
+            amp-social-share(type='linkedin')
+            amp-social-share(type='pinterest', data-param-media='https://qmau.me/blog/post/' + data.post.slug)
+            amp-social-share(type='tumblr')
+            amp-social-share(type='twitter')
+            amp-social-share(type='whatsapp')
+            amp-facebook-comments(width='486', height='200', layout='responsive', data-numposts='5', data-href='https://qmau.me/blog/post/' + data.post.slug)
+      aside.col-2.xs-hide.sm-hide.md-hide

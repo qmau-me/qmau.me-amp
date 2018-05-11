@@ -1,9 +1,11 @@
-include ./postimg
-include ./postnoimage
-
 mixin post(post)
-	if post.img
-		+postimg(post)
-	else
-		+postnoimage(post)
-
+  .ampstart-card.abe-sample-card.flex.flex-column.flex-auto.p1.mb1
+    .abe-preview.fit
+      amp-img(src=post.image.url, alt='AMP', width='475', height='475', layout='responsive')
+    h2.mb1
+      a(href='/blog/post/' + post.slug) #{post.title}
+      i
+    .abe-code.fit
+      p.mb1 #{post.content.brief.md}
+      .abe-sample-card-actions
+        a.ampstart-btn.caps.text-decoration-none.inline-block(href='/blog/post/' + post.slug) READ

@@ -1,0 +1,33 @@
+mixin sidebar(data)
+  ul.www-component-anchors.list-reset.m0.p0.px1.caps
+    li.clearfix.mb3
+      a.www-component-anchor.text-decoration-none.left(href='#top', option='top')
+        | Top
+    li.clearfix.mb3
+      amp-accordion.ampstart-dropdown(layout='container', disable-session-states='')
+        section
+          header Top posts
+          ul.ampstart-dropdown-items.list-reset.m0.p0
+            if data.posts
+              each topPost in data.topPosts
+                li.ampstart-dropdown-item
+                  a.text-decoration-none.capitalize(href="/blog/post/" + topPost.slug)  #{topPost.title}
+    li.clearfix.mb3
+      amp-accordion.ampstart-dropdown(layout='container', disable-session-states='')
+        section
+          header Recent posts
+          ul.ampstart-dropdown-items.list-reset.m0.p0
+            if data.posts
+              each recentPost in data.recentPosts
+                li.ampstart-dropdown-item
+                  a.text-decoration-none.capitalize(href="/blog/post/" + recentPost.slug)  #{recentPost.title}
+    li.clearfix.mb3
+      amp-accordion.ampstart-dropdown(layout='container', disable-session-states='')
+        section
+          header All tags
+          ul.ampstart-dropdown-items.list-reset.m0.p0
+            if data.allTags
+              each tag in data.allTags
+                a.text-decoration-none(href='/tag/' + tag.key)
+                  code ##{tag.name}
+                =" "
