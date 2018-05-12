@@ -1,6 +1,7 @@
 extends ../layouts/default
-include ../mixins/post
 include ../mixins/amp-style
+include ../mixins/sidebar
+
 block head
 	title Bucket list | qmau.me
 	meta(name='Description', content='Mau Ha Quang | Bucket-list')
@@ -12,11 +13,23 @@ block head
 	meta(property='og:site_name', content='Blog của Mầu')
 	meta(property='og:description', content="Mau Ha Quang bucket list")
 	meta(name='Description', content="Mau Ha Quang bucket list")
+	link(href='https://fonts.googleapis.com/css?family=Inconsolata|Montserrat', rel='stylesheet')
 	link(rel='amphtml', href='https://amp.qmau.me/bucket-list/')
 	+amp-style
 
 block body
-	h1.xs-hide.sm-hide.md-commerce-header.h3.md-py2.md-mb4 Bucket-list
-	ol.m0
-		each val in ["✔ Live in another country", "Watch a soccer game at Old Trafford", "Watch a world cup final", "Attend TED", "✔ Being students president", "100km trip by bike", "✔ Start my own blog", "✔ Get a part-time job", "✔ Conquer Fansipan", "Conquer Mt. Fuji", "Everest base camp", "Buy a car", "Buy a house", "✔ Sleep outdoor", "100k page views blog", "✔ Start my own business", "✔ Get ears pierced", "Get a tattoo", "Couch surfing", "Visit Sicily, Italy", "✔ Visit an island", "✔ Being on a camp", "Visit Beijing", "Visit Hongkong", "Visit Okinawa", "✔ Sleep in the forest", "✔ Travel alone", "Visit India", "Reads 500 books", "Cook well", "Record a podcast", "Bungee jump", "Go abroad for a concert", "Finish 10 online courses", "✔ Be financial indepent", "Visit Great Pyramid of Giza, Egypt", "✔ Ask a stranger's number", "✔ Be on school website", "Be on national TV", "✔ Dancing in the rain", "✔ Dancing on stage", "Visit 20 countries", "Get >1x stars project on git", "Overseas trip with family", "Learn to play a music instrument", "Sail a boat", "Get AWS certified", "JLPT N1", "Master degree", "✔ Build a 100 users per day service", "TOEIC or IELTS certified", "✔ Watch a basketball match", "✔ Watch a baseball match", "Donate blood", "Visit Harry Potter castle", "Witness an eclipse", "Volunteer abroad", "Run a marathon", "Get a sport bike", "✔ Have a conversation with stranger at cafe", "Be in ultra festival", "Travel in a helicopter", "Fly first class", "Get a driver license", "Get a followed playlist on Spotify"]
-			li= val
+	header#top-header.www-header.center
+		h1.mb1 Bucket-list
+		time.block.mb4.caps.text-decoration-none May 12, 2018
+	amp-selector(layout='container')
+		main.flex.pl2.mt1
+			aside.www-components-sec-nav.col-2.xs-hide.sm-hide.relative
+				+sidebar(data)
+			article.www-components.flex-auto.col-8
+				section.www-component-desc
+					p.mb2
+						each val in ["✔ Live in another country", "Watch a soccer game at Old Trafford", "Watch a world cup final", "Attend TED", "✔ Being students president", "100km trip by bike", "✔ Start my own blog", "✔ Get a part-time job", "✔ Conquer Fansipan", "Conquer Mt. Fuji", "Everest base camp", "Buy a car", "Buy a house", "✔ Sleep outdoor", "100k page views blog", "✔ Start my own business", "✔ Get ears pierced", "Get a tattoo", "Couch surfing", "Visit Sicily, Italy", "✔ Visit an island", "✔ Being on a camp", "Visit Beijing", "Visit Hongkong", "Visit Okinawa", "✔ Sleep in the forest", "✔ Travel alone", "Visit India", "Reads 500 books", "Cook well", "Record a podcast", "Bungee jump", "Go abroad for a concert", "Finish 10 online courses", "✔ Be financial indepent", "Visit Great Pyramid of Giza, Egypt", "✔ Ask a stranger's number", "✔ Be on school website", "Be on national TV", "✔ Dancing in the rain", "✔ Dancing on stage", "Visit 20 countries", "Get >1x stars project on git", "Overseas trip with family", "Learn to play a music instrument", "Sail a boat", "Get AWS certified", "JLPT N1", "Master degree", "✔ Build a 100 users per day service", "TOEIC or IELTS certified", "✔ Watch a basketball match", "✔ Watch a baseball match", "Donate blood", "Visit Harry Potter castle", "Witness an eclipse", "Volunteer abroad", "Run a marathon", "Get a sport bike", "✔ Have a conversation with stranger at cafe", "Be in ultra festival", "Travel in a helicopter", "Fly first class", "Get a driver license", "Get a followed playlist on Spotify"]
+							| #{val}
+							br
+				aside.col-2.xs-hide.sm-hide.md-hide
+
