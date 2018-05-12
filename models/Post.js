@@ -27,8 +27,9 @@ Post.add({
 		type: Types.File,
 		storage: storage,
 	},
+	amp: { type: Types.Markdown, html: String, md: String },
 	content: {
-		brief: { type: Types.Markdown, html: String, md: String, height: 400, toolbarOptions: { hiddenButtons: 'H1,H6,Code' } },
+		brief: { type: Types.Markdown, html: String, md: String, height: 100, toolbarOptions: { hiddenButtons: 'H1,H6,Code' } },
 		extended: { type: Types.Markdown, html: String, md: String, height: 400, toolbarOptions: { hiddenButtons: 'H1,H6,Code' } },
 	},
 	categories: { type: Types.Relationship, ref: 'PostCategory', many: true },

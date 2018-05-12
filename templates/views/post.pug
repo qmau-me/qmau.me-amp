@@ -13,12 +13,14 @@ block head
   meta(itemprop='name', content= data.post.title + " - qmau.me")
   meta(itemprop='description', content= data.post.content.brief.md)
   meta(itemprop='image', content= "https://qmau.me" + data.post.image.url)
+  !=data.post.amp.md
   // Twitter Card data
   meta(name='twitter:title', content= data.post.title + " - qmau.me")
   meta(name='twitter:description', content= data.post.content.brief.md )
   meta(name='twitter:image', content= "https://qmau.me" + data.post.image.url)
   meta(name='twitter:image:alt', content='Blog của Mầu - qmau.me')
   // Open Graph data
+
   meta(property='og:title', content= data.post.title + " - qmau.me")
   meta(property='og:type', content='article')
   meta(property='og:image', content= "https://qmau.me" + data.post.image.url)
