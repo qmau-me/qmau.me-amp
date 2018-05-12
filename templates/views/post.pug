@@ -8,27 +8,27 @@ block head
   script(async='', custom-element='amp-facebook-comments', src='https://cdn.ampproject.org/v0/amp-facebook-comments-0.1.js')
   script(async='', custom-element='amp-social-share', src='https://cdn.ampproject.org/v0/amp-social-share-0.1.js')
   meta(name='description', content= data.post.content.brief.md )
-  link(rel='canonical', href='/blog/post' + data.post.slug)
+  link(rel='canonical', href='https://qmau.me/blog/post/' + data.post.slug)
   // Schema.org markup for Google+
-  meta(itemprop='name', content= data.post.title + "- qmau.me")
+  meta(itemprop='name', content= data.post.title + " - qmau.me")
   meta(itemprop='description', content= data.post.content.brief.md)
-  meta(itemprop='image', content= data.post.image.url)
+  meta(itemprop='image', content= "https://qmau.me" + data.post.image.url)
   // Twitter Card data
-  meta(name='twitter:title', content= data.post.title + "- qmau.me")
+  meta(name='twitter:title', content= data.post.title + " - qmau.me")
   meta(name='twitter:description', content= data.post.content.brief.md )
-  meta(name='twitter:image', content= data.post.image.url)
+  meta(name='twitter:image', content= "https://qmau.me" + data.post.image.url)
   meta(name='twitter:image:alt', content='Blog của Mầu - qmau.me')
   // Open Graph data
-  meta(property='og:title', content= data.post.title + "- qmau.me")
+  meta(property='og:title', content= data.post.title + " - qmau.me")
   meta(property='og:type', content='article')
-  meta(property='og:image', content= data.post.image.url)
-  meta(property='og:url', content='http://localhost:9000/amp-ads/basic_ads/banner_ad/preview/')
+  meta(property='og:image', content= "https://qmau.me" + data.post.image.url)
+  meta(property='og:url', content='https://qmau.me/blog/post/' + data.post.slug)
   meta(property='og:description', content= data.post.content.brief.md )
   meta(property='og:site_name', content='Blog của Mầu - qmau.me')
-  meta(property='article:published_time', content='2018-05-10T09:14:40.303Z')
-  meta(property='article:modified_time', content='2018-05-10T09:14:40.303Z')
   link(href='https://fonts.googleapis.com/css?family=Inconsolata|Montserrat', rel='stylesheet')
   link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700')
+  script(type='application/ld+json').
+    {"@context":"http://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"Blog","@id":"https://qmau.me"},"headline":"#{data.post.title}","image":"https://qmau.me#{data.post.image.url}","datePublished":"#{data.post.publishedDate}","dateModified":"#{data.post.publishedDate}","author":{"@context":"http://schema.org","@type":"Person","name":"Mau Ha Quang","url":"https://www.qmau.me","sameAs":["https://www.facebook.com/qmau94","https://www.github.com/qmau94","https://twitter.com/qmau94","https://www.linkedin.com/in/qmau94/"]},"publisher":{"@type":"Organization","name":"qmau.me","logo":{"@type":"ImageObject","url":"https://qmau.me/favicon.svg"}},"description":"#{data.post.content.brief.md}"}
   +amp-style
 block body
   header#top-header.www-header.center

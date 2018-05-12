@@ -13,12 +13,7 @@ var urlsToCache = [
 	'/tag/amazingjapan',
 ];
 var preCacheSrc = [
-	'/favicon.svg',
-	'/styles/qmau-me.css',
-	'/images/icons/icon-152x152.png',
-	'/js/sw_reg.js',
 	'/manifest.json',
-	'/js/jquery/jquery-3.3.1.min.js',
 	'/service-worker.js',
 ];
 
