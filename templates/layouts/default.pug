@@ -1,5 +1,5 @@
 doctype html
-html(⚡='')
+html(⚡='' lang="vi-VN")
   head
     meta(charset='utf-8')
     link(as='script', href='https://cdn.ampproject.org/v0.js', rel='preload')
@@ -9,7 +9,6 @@ html(⚡='')
     script(async='', custom-element='amp-sidebar', src='https://cdn.ampproject.org/v0/amp-sidebar-0.1.js')
     script(async='', custom-element='amp-analytics', src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js')
     script(async='', custom-element='amp-install-serviceworker', src='https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js')
-    meta(name='description', content='Hành trình của một lập trình viên tại Nhật Bản 🗼 với cốc ☕ Bạc xỉu dành cho những ý tưởng nghiêm túc và vài chút 🍵 Trà đá bên dăm ba mẩu chuyện vỉa hè.')
     link(rel='manifest', href='/manifest.json')
     link(rel='apple-touch-icon', sizes='72x72', href='/images/icons/icon-72x72.png')
     link(rel='apple-touch-icon', sizes='96x96', href='/images/icons/icon-96x96.png')
@@ -27,7 +26,6 @@ html(⚡='')
     meta(name='mobile-web-app-capable', content='yes')
     meta(name='theme-color', content='#f44336')
     meta(name='application-name', content='qmau.me')
-    link(rel='yandex-tableau-widget', href='/favicons/yandex-browser-manifest.json')
     link(rel='icon', type='image/png', href='/favicon.svg')
     link(rel='shortcut icon', href='/favicon.svg')
     meta(name='msapplication-TileColor', content='#f44336')
@@ -48,6 +46,8 @@ html(⚡='')
     noscript
       style(amp-boilerplate='').
         body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}
+    script(type='application/ld+json').
+      {"@context":"http://schema.org","@type":"Blog","name":"Blog của Mầu - qmau.me","description":"Hành trình của một lập trình viên tại Nhật Bản 🗼 với cốc ☕ Bạc xỉu dành cho những ý tưởng nghiêm túc và vài chút 🍵 Trà đá bên dăm ba mẩu chuyện vỉa hè.","author":{"@context":"http://schema.org","@type":"Person","name":"Mau Ha Quang","url":"https://www.qmau.me","sameAs":["https://www.facebook.com/qmau94","https://www.github.com/qmau94","https://twitter.com/qmau94","https://www.linkedin.com/in/qmau94/"]},"publisher":{"@type":"Organization","name":"qmau.me","logo":{"@type":"ImageObject","url":"https://qmau.me/favicon.svg"}},"license":"https://opensource.org/licenses/MIT"}
     block head
   body
     // Start Navbar
@@ -57,7 +57,7 @@ html(⚡='')
         amp-img(src='/img/logo-h.svg', width='208', height='40', layout='fixed', alt='AMP by Example', noloading='')
       nav.ampstart-headerbar-nav.ampstart-nav.xs-hide.sm-hide
         ul.list-reset.m0.p0.flex.justify-center.nowrap
-          li.ampstart-nav-item(class= data.category && data.category.key == "devinjap" ? "www-current-page" : "")
+          li.ampstart-nav-item(class= (data && data.category) && data.category.key == "devinjap" ? "www-current-page" : "")
             a.text-decoration-none.block(href='/blog/devinjap') DevInJap
             .abe-list-container
               .abe-list-shadow
@@ -66,8 +66,8 @@ html(⚡='')
                   a(href='/tag/amazingjapan') Amazing Japan
                   ul.list-reset.m0.p0.abe-sublist
                     li
-                      a(href='https://qmau.me/blog/post/di-chua-o-nhat') Đi chùa ở Nhật - 浅草寺
-          li.ampstart-nav-item(class= data.category && data.category.key == "bac-xiu" ? "www-current-page" : "")
+                      a(href='/blog/post/di-chua-o-nhat') Đi chùa ở Nhật - 浅草寺
+          li.ampstart-nav-item(class= (data && data.category) && data.category.key == "bac-xiu" ? "www-current-page" : "")
             a.text-decoration-none.block(href='/blog/bac-xiu') Bạc xỉu
             .abe-list-container
               .abe-list-shadow
@@ -85,9 +85,9 @@ html(⚡='')
                   a(href='/tag/rest') REST & APIs
                   ul.list-reset.m0.p0.abe-sublist
                     li
-                      a(href='/blog/post/rest-101') REST 101 - REST, RESTful API
+                      a(href='/blog/post/rest-101-rest-restful-api') REST 101 - REST, RESTful API
                     li
-                      a(href='/blog/post/rest-201') REST 201 - REST vs SOAP
+                      a(href='/blog/post/rest-201-rest-vs-soap') REST 201 - REST vs SOAP
                 li.abe-has-sublist
                   a(href='/tag/rest') Chatbot
                   ul.list-reset.m0.p0.abe-sublist
@@ -95,7 +95,7 @@ html(⚡='')
                       a(href='/blog/post/kanto-transit-chatbot-voi-yahoo-transit-va-node-js') [初雪] Kanto transit chatbot với Yahoo transit và Node.js
                     li
                       a(href='/blog/post/tat-ca-nhung-gi-ban-can-biet-ve-chatbot') Tất cả những gì bạn cần biết về Chatbot
-          li.ampstart-nav-item(class= data.category && data.category.key == "tra-da" ? "www-current-page" : "")
+          li.ampstart-nav-item(class= (data && data.category) && data.category.key == "tra-da" ? "www-current-page" : "")
             a.text-decoration-none.block(href='/blog/tra-da') Trà đá
             .abe-list-container
               .abe-list-shadow
@@ -107,111 +107,96 @@ html(⚡='')
                       a(href='/blog/post/2017-year-in-review')  2017 YEAR IN REVIEW
                 li
                   a(href='/bucket-list') Bucket-list
-          li.ampstart-nav-item
+          li.ampstart-nav-item(class= !data ? "www-current-page" : "")
             a.text-decoration-none.block(href='/about') About me
     // Start Sidebar
     amp-sidebar#header-sidebar.ampstart-sidebar.px3.flex.flex-column.md-hide.lg-hide(layout='nodisplay')
       .flex.justify-start.items-center.ampstart-sidebar-header
         a.ampstart-navbar-trigger.items-start(href='#', on='tap:header-sidebar.toggle') ✕
       nav.ampstart-sidebar-nav.ampstart-nav
-        a.block.caps.h4.py1.abe-primary(href='/') DevInJap
+        a.block.caps.h4.py1.abe-primary(href='/blog/devinjap') DevInJap
         ul.list-reset.m0.p0.caps.h5
           li.ampstart-nav-item.ampstart-nav-dropdown.relative
             // Start Dropdown-inline
             amp-accordion.ampstart-dropdown(layout='container', disable-session-states='')
               section
-                header Introduction
+                header Amazing Japan
                 ul.ampstart-dropdown-items.list-reset.m0.p0
                   li.ampstart-dropdown-item
-                    a.text-decoration-none(href='/introduction/hello_world/')  Hello World
-                  li.ampstart-dropdown-item
-                    a.text-decoration-none(href='/introduction/how_to_publish_amps/')  How to publish AMPs
-                  li.ampstart-dropdown-item
-                    a.text-decoration-none(href='/introduction/amp_for_e-commerce_getting_started/') AMP for E-Commerce Getting Started
-                  li.ampstart-dropdown-item
-                    a.text-decoration-none(href='/introduction/internationalization/') Internationalization
+                    a.text-decoration-none.capitalize(href='/blog/post/di-chua-o-nhat') Đi chùa ở Nhật - 浅草寺
             // End Dropdown-inline
-          li.ampstart-nav-item.ampstart-nav-dropdown.relative
-            // Start Dropdown-inline
-            amp-accordion.ampstart-dropdown(layout='container', disable-session-states='')
-              section
-                header Advanced
-                ul.ampstart-dropdown-items.list-reset.m0.p0
-                  li.ampstart-dropdown-item
-                    a.text-decoration-none(href='/advanced/autosuggest/') Autosuggest
-                  li.ampstart-dropdown-item
-                    a.text-decoration-none(href='/advanced/click-to-play_overlay_for_amp-video/') Click-to-play overlay for amp-video
-                  li.ampstart-dropdown-item
-                    a.text-decoration-none(href='/advanced/combobox/') ComboBox
-            // End Dropdown-inline
-        a.block.caps.h4.py1.abe-primary(href='/amp-ads') Bạc xỉu
+        a.block.caps.h4.py1.abe-primary(href='/blog/bac-xiu') Bạc xỉu
         ul.list-reset.m0.p0.caps.h5
           li.ampstart-nav-item.ampstart-nav-dropdown.relative
             // Start Dropdown-inline
             amp-accordion.ampstart-dropdown(layout='container', disable-session-states='')
               section
-                header Introduction
+                header Blogging cùng Keystone
                 ul.ampstart-dropdown-items.list-reset.m0.p0
                   li.ampstart-dropdown-item
-                    a.text-decoration-none(href='/amp-ads/introduction/hello_world/')  Hello World
+                    a.text-decoration-none.capitalize(href='/blog/post/blogging-cung-keystone-js-1-envinronment')  Blogging cùng Keystone.js (1) - Envinronment
                   li.ampstart-dropdown-item
-                    a.text-decoration-none(href='/amp-ads/introduction/amphtml_ads_vs_non-amp_ads/') AMPHTML ads vs non-AMP ads
+                    a.text-decoration-none.capitalize(href='/blog/post/blogging-cung-keystone-js-2-development')  Blogging cùng Keystone.js (2) - Development
+                  li.ampstart-dropdown-item
+                    a.text-decoration-none.capitalize(href='/blog/post/blogging-cung-keystone-js-3-deployment')  Blogging cùng Keystone.js (3) - Deployment
             // End Dropdown-inline
           li.ampstart-nav-item.ampstart-nav-dropdown.relative
             // Start Dropdown-inline
             amp-accordion.ampstart-dropdown(layout='container', disable-session-states='')
               section
-                header Basic Ads
+                header REST & APIs
                 ul.ampstart-dropdown-items.list-reset.m0.p0
                   li.ampstart-dropdown-item
-                    a.text-decoration-none(href='/amp-ads/basic_ads/banner_ad/') Banner Ad
+                    a.text-decoration-none.capitalize(href='/blog/post/rest-101-rest-restful-api') REST 101 - REST, RESTful API
+                  li.ampstart-dropdown-item
+                    a.text-decoration-none.capitalize(href='/blog/post/rest-201-rest-vs-soap') REST 201 - REST vs SOAP
+          li.ampstart-nav-item.ampstart-nav-dropdown.relative
+            // Start Dropdown-inline
+            amp-accordion.ampstart-dropdown(layout='container', disable-session-states='')
+              section
+                header Chatbot
+                ul.ampstart-dropdown-items.list-reset.m0.p0
+                  li.ampstart-dropdown-item
+                    a.text-decoration-none.capitalize(href='/blog/post/kanto-transit-chatbot-voi-yahoo-transit-va-node-js') [初雪] Kanto transit chatbot với Yahoo transit và Node.js
+                  li.ampstart-dropdown-item
+                    a.text-decoration-none.capitalize(href='/blog/post/tat-ca-nhung-gi-ban-can-biet-ve-chatbot') Tất cả những gì bạn cần biết về Chatbot
             // End Dropdown-inline
-        a.block.caps.h4.py1.abe-primary(href='/stories') Trà đá
+        a.block.caps.h4.py1.abe-primary(href='/blog/tra-da') Trà đá
         ul.list-reset.m0.p0.caps.h5
           li.ampstart-nav-item.ampstart-nav-dropdown.relative
             // Start Dropdown-inline
             amp-accordion.ampstart-dropdown(layout='container', disable-session-states='')
               section
-                header Introduction
+                header Year in Review
                 ul.ampstart-dropdown-items.list-reset.m0.p0
                   li.ampstart-dropdown-item
-                    a.text-decoration-none(href='/stories/introduction/amp_story_hello_world/')  AMP Story Hello World
+                    a.text-decoration-none.capitalize(href='/blog/post/2017-year-in-review')  2017 YEAR IN REVIEW
             // End Dropdown-inline
           li.ampstart-nav-item.ampstart-nav-dropdown.relative
             // Start Dropdown-inline
             amp-accordion.ampstart-dropdown(layout='container', disable-session-states='')
               section
-                header Features
+                header Pages
                 ul.ampstart-dropdown-items.list-reset.m0.p0
                   li.ampstart-dropdown-item
-                    a.text-decoration-none(href='/stories/features/animations/') Animations
+                    a.text-decoration-none.capitalize(href='/bucket-list') Bucket-list
                   li.ampstart-dropdown-item
-                    a.text-decoration-none(href='/stories/features/layouts/') Layouts
+                    a.text-decoration-none.capitalize(href='/about') About me
             // End Dropdown-inline
       ul.ampstart-social-follow.list-reset.flex.justify-around.items-center.flex-wrap.m0.mb4
         li.mr2
-          a.inline-block(href='https://twitter.com/amphtml')
-            svg(xmlns='http://www.w3.org/2000/svg', width='24', height='22.2', viewbox='0 0 53 49')
-              title Twitter
-              path.ampstart-icon.ampstart-icon-twitter(d='M45 6.9c-1.6 1-3.3 1.6-5.2 2-1.5-1.6-3.6-2.6-5.9-2.6-4.5 0-8.2 3.7-8.2 8.3 0 .6.1 1.3.2 1.9-6.8-.4-12.8-3.7-16.8-8.7C8.4 9 8 10.5 8 12c0 2.8 1.4 5.4 3.6 6.9-1.3-.1-2.6-.5-3.7-1.1v.1c0 4 2.8 7.4 6.6 8.1-.7.2-1.5.3-2.2.3-.5 0-1 0-1.5-.1 1 3.3 4 5.7 7.6 5.7-2.8 2.2-6.3 3.6-10.2 3.6-.6 0-1.3-.1-1.9-.1 3.6 2.3 7.9 3.7 12.5 3.7 15.1 0 23.3-12.6 23.3-23.6 0-.3 0-.7-.1-1 1.6-1.2 3-2.7 4.1-4.3-1.4.6-3 1.1-4.7 1.3 1.7-1 3-2.7 3.6-4.6')
+          a.inline-block(href='https://m.me/qmau94', aria-label="messenger")
+            amp-img(src='/img/facebook.svg', width='24', height='24')
         li.mr2
-          a.inline-block(href='https://github.com/ampproject/amp-by-example')
-            svg(xmlns='http://www.w3.org/2000/svg', width='24', height='24', viewbox='0 0 64.000000 64.000000')
-              path.ampstart-icon(d='M22.4 1.4C-.8 9-7.4 38.4 10.5 54.9 14.7 58.8 20.4 62 23 62c.5 0 1-1.6 1-3.5 0-3.3-.2-3.5-3.5-3.5-3.5 0-4.2-.5-9-6.6-4.4-5.6-2.3-6.2 3.2-.9 4.2 4 7.5 4.5 9.8 1.2 1.4-2.1 1.4-2.2-.7-3-6-2.3-8.8-4.2-10.2-7.2-2.1-4.3-2.1-12.4 0-15.3.8-1.2 1.2-2.7.9-3.2-1-1.6.5-7 1.8-7 .7 0 2.4.6 3.8 1.4 1.7.9 6 1.4 11.9 1.4s10.2-.5 11.9-1.4c1.4-.8 3.1-1.4 3.8-1.4 1.3 0 2.8 5.4 1.8 7-.3.5.1 2 .9 3.2 1.8 2.5 2.1 10.3.7 14.1-1.4 3.6-5 6.6-9.3 7.8-3.3.9-3.7 1.2-2.8 2.9.5 1 1 4.6 1 7.9 0 3.5.4 6.1 1 6.1 5.2 0 15.8-8.8 19.8-16.5 2.3-4.3 2.7-6.3 2.7-13.5 0-7-.4-9.4-2.4-13.5C57.9 12.2 51.8 6 45.6 3 39.6.2 28.5-.6 22.4 1.4z')
+          a.inline-block(href='https://twitter.com/qmau94', aria-label="twitter")
+            amp-img(src='/img/twitter.svg', width='24', height='24')
         li.mr2
-          a.inline-block(href='https://amphtml.wordpress.com/')
-            svg(xmlns='http://www.w3.org/2000/svg', width='24', height='25', viewbox='0 0 19 20')
-              title WordPress_logo Copy
-              g(transform='translate(0 .5)', fill='none', fill-rule='evenodd')
-                ellipse.ampstart-icon(fill='#000', cx='9.537', cy='9.537', rx='9.382', ry='9.382')
-                g(fill='#FFF')
-                  path(d='M1.345 9.463a8.12 8.12 0 0 0 4.575 7.306L2.048 6.16a8.087 8.087 0 0 0-.703 3.304zm13.599-.41c0-1.003-.36-1.698-.67-2.239-.411-.668-.797-1.235-.797-1.903 0-.747.566-1.441 1.363-1.441.036 0 .07.004.105.006a8.088 8.088 0 0 0-5.482-2.13A8.108 8.108 0 0 0 2.68 5.003c.19.006.37.01.523.01.849 0 2.163-.103 2.163-.103.438-.026.49.617.052.669 0 0-.44.051-.929.077l2.957 8.793 1.776-5.328-1.265-3.465c-.437-.026-.851-.078-.851-.078-.437-.025-.386-.694.051-.668 0 0 1.34.103 2.139.103.849 0 2.163-.103 2.163-.103.438-.026.49.617.052.668 0 0-.44.052-.929.078l2.934 8.726.81-2.705c.35-1.123.618-1.93.618-2.625z')
-                  path(d='M9.606 10.173L7.17 17.251a8.118 8.118 0 0 0 4.99-.13.713.713 0 0 1-.059-.112l-2.495-6.836zm6.981-4.605c.034.259.054.536.054.835 0 .824-.154 1.75-.617 2.908l-2.48 7.17a8.115 8.115 0 0 0 4.037-7.018c0-1.411-.36-2.739-.994-3.895z')
-                  path(d='M9.5 0C4.262 0 0 4.262 0 9.5 0 14.739 4.262 19 9.5 19S19 14.739 19 9.5C19 4.262 14.738 0 9.5 0zm0 18.565C4.502 18.565.436 14.498.436 9.5.436 4.502 4.502.436 9.5.436c4.997 0 9.063 4.066 9.063 9.064s-4.066 9.065-9.063 9.065z')
+          a.inline-block(href='https://github.com/qmau94', aria-label="github")
+            amp-img(src='/img/github.svg', width='24', height='24')
         li.mr2
-          a.inline-block(href='https://docs.google.com/forms/d/1wAE8w3K5preZnBkRk-MD1QkX8FmlRDxd_vs4bFSeJlQ/viewform?fbzx=4406980310789882877')
-            svg(xmlns='http://www.w3.org/2000/svg', viewbox='0 0 24 24', width='24', height='24')
-              path.ampstart-icon(d='M13.299,2.004c-0.215-0.017-0.455,0.023-0.672,0.096c-0.868,0.29-1.322,1.22-1.032,2.087l0.696,2.039l-3.935,1.32 L7.708,5.579c-0.29-0.868-1.22-1.322-2.087-1.032c-0.868,0.29-1.346,1.22-1.056,2.087l0.648,1.944L3.173,9.274 c-0.868,0.29-1.322,1.244-1.032,2.111s1.22,1.322,2.087,1.032l2.039-0.672l1.32,3.911l-1.968,0.648 c-0.868,0.29-1.322,1.22-1.032,2.087c0.29,0.868,1.22,1.346,2.087,1.056L8.62,18.8l0.696,2.039c0.29,0.868,1.244,1.322,2.111,1.032 c0.868-0.29,1.321-1.22,1.032-2.087l-0.672-2.039l3.911-1.32l0.648,1.968c0.29,0.868,1.22,1.322,2.087,1.032 c0.868-0.29,1.345-1.22,1.056-2.087l-0.648-1.944l2.039-0.696c0.868-0.29,1.322-1.244,1.032-2.111 c-0.29-0.868-1.22-1.322-2.087-1.032l-2.039,0.672l-1.32-3.911l1.968-0.648c0.868-0.29,1.322-1.22,1.032-2.087 c-0.29-0.868-1.22-1.346-2.087-1.056l-1.944,0.648l-0.696-2.039C14.521,2.481,13.942,2.054,13.299,2.004z M13.323,9.37l1.32,3.911 l-3.911,1.32l-1.32-3.911L13.323,9.37z')
+          a.inline-block(href='https://www.linkedin.com/in/qmau94/', aria-label="linkedin")
+            amp-img(src='/img/linkedin.svg', width='24', height='24')
+
     // End Sidebar
     // End Navbar
     block body
@@ -219,17 +204,18 @@ html(⚡='')
     footer.ampstart-footer.flex.flex-column.items-center.pxy3
       ul.ampstart-social-follow.list-reset.flex.justify-around.items-center.flex-wrap.m0.mb4
         li.mr2
-          a.inline-block(href='https://m.me/qmau94')
+          a.inline-block(href='https://m.me/qmau94', aria-label="messenger")
             amp-img(src='/img/facebook.svg', width='24', height='24')
         li.mr2
-          a.inline-block(href='https://twitter.com/qmau94')
+          a.inline-block(href='https://twitter.com/qmau94', aria-label="twitter")
             amp-img(src='/img/twitter.svg', width='24', height='24')
         li.mr2
-          a.inline-block(href='https://github.com/qmau94')
+          a.inline-block(href='https://github.com/qmau94', aria-label="github")
             amp-img(src='/img/github.svg', width='24', height='24')
         li.mr2
-          a.inline-block(href='https://www.linkedin.com/in/qmau94/')
+          a.inline-block(href='https://www.linkedin.com/in/qmau94/', aria-label="linkedin")
             amp-img(src='/img/linkedin.svg', width='24', height='24')
+
 
       nav.ampstart-footer-nav
         ul.list-reset.flex.flex-wrap.mb3
@@ -261,4 +247,4 @@ html(⚡='')
         }
         }
         }
-    //- amp-install-serviceworker(src='/sw.js', layout='nodisplay')
+    amp-install-serviceworker(src='/service-worker.js', layout='nodisplay')
