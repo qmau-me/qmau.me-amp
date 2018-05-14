@@ -43,7 +43,7 @@ exports = module.exports = function (app) {
 	app.get('/blog/post/:post', cache.route({ expire: 2592000 }), routes.views.post);
 	app.get('/about', cache.route({ expire: 2592000 }), routes.views.about);
 	app.get('/bucket-list', cache.route({ expire: 2592000 }), routes.views.list);
-
+	app.get('/tos', cache.route({ expire: 2592000 }), routes.views.tos);
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
