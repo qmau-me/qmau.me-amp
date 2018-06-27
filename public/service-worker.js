@@ -30,7 +30,7 @@ self.addEventListener('install', function (evt) {
 
 self.addEventListener('fetch', function (evt) {
 	console.log('The service worker is serving the asset.');
-	evt.respondWith(fromNetwork(evt.request, 500).catch(function () {
+	evt.respondWith(fromNetwork(evt.request, 2000).catch(function () {
 		return fromCache(evt.request);
 	}));
 });
