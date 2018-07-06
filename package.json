@@ -10,9 +10,11 @@
     "gulp-imagemin": "^4.1.0",
     "gulp-minify": "^2.1.0",
     "gulp-minify-css": "^1.2.4",
+    "hoek": "4.2.1",
     "jquery-asProgress": "^0.2.4",
-    "keystone": "^4.0.0-beta.8",
+    "keystone": "^4.0.0-rc.1",
     "lodash": "^4.17.10",
+    "moment": "2.19.3",
     "pug": "2.0.0-beta11",
     "xml2js": "^0.4.19",
     "yql": "^1.0.2"

@@ -21,7 +21,6 @@
 var keystone = require('keystone');
 var middleware = require('./middleware');
 var importRoutes = keystone.importer(__dirname);
-// var cache = require('express-redis-cache')();
 
 keystone.set('404', function (req, res, next) {
 	res.status(404).render('errors/404');
@@ -37,13 +36,6 @@ var routes = {
 // Setup Route Bindings
 exports = module.exports = function (app) {
 	// Views
-	// app.get('/', cache.route({ expire: 2592000 }), routes.views.index);
-	// app.get('/tag/:tag?', cache.route({ expire: 2592000 }), routes.views.tag);
-	// app.get('/blog/:category?', cache.route({ expire: 2592000 }), routes.views.blog);
-	// app.get('/blog/post/:post', cache.route({ expire: 2592000 }), routes.views.post);
-	// app.get('/about', cache.route({ expire: 2592000 }), routes.views.about);
-	// app.get('/bucket-list', cache.route({ expire: 2592000 }), routes.views.list);
-	// app.get('/tos', cache.route({ expire: 2592000 }), routes.views.tos);
 	app.get('/', routes.views.index);
 	app.get('/tag/:tag?', routes.views.tag);
 	app.get('/blog/:category?', routes.views.blog);
