@@ -9,6 +9,7 @@ var keystone = require('keystone');
 // See http://keystonejs.com/guide/config for available options
 // and documentation.
 
+
 keystone.init({
 	'name': 'qmau.me',
 	'brand': 'qmau.me',
