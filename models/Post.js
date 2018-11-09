@@ -36,21 +36,31 @@ Post.add({
 		type: Types.File,
 		storage: storage,
 	},
-	amp: { type: Types.Markdown, html: String, md: String },
+	amp: {
+		type: Types.Markdown, html: String, md: String, sanitizeOptions: {
+			allowedTags: false,
+			allowedAttributes: false
+		}
+	},
 	content: {
 		brief: {
 			type: Types.Markdown,
 			html: String,
 			md: String,
 			height: 100,
-			toolbarOptions: { hiddenButtons: 'H1,H6,Code' }
+			toolbarOptions: { hiddenButtons: 'H1,H6,Code' },
 		},
 		extended: {
 			type: Types.Markdown,
 			html: String,
 			md: String,
 			height: 400,
-			toolbarOptions: { hiddenButtons: 'H1,H6,Code' }
+			toolbarOptions: { hiddenButtons: 'H1,H6,Code' },
+			sanitizeOptions: {
+				allowedTags: false,
+				allowedAttributes: false
+
+			}
 		},
 	},
 	categories: { type: Types.Relationship, ref: 'PostCategory', many: true },
