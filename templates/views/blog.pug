@@ -37,7 +37,7 @@ block head
   meta(property='og:image', content= "/favicon.svg")
   meta(property='og:url', content='/blog/' + data.category.key)
   meta(property='og:site_name', content='Blog của Mầu - qmau.me')
-  link(href='https://fonts.googleapis.com/css?family=Inconsolata|Montserrat', rel='stylesheet')
+  link(href='https://fonts.googleapis.com/css?family=Inconsolata|Montserrat&font-display=swap', rel='stylesheet')
   script(type='application/ld+json').
     {"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"Blog","@id":"https://qmau.me/","name":"Blog của Mầu - qmau.me","image":"http://qmau.me/logo.png"}},{"@type":"ListItem","position":2,"item":{"@id":"https://qmau.me/blog/#{data.category.key}","name":"#{data.category.name}","image":"http://qmau.me/logo.png"}}]}
   style(amp-custom='').
