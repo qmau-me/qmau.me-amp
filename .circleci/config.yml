@@ -39,7 +39,7 @@ jobs:
       - run:
           name: Deploy Over SSH
           command: |
-            ssh $SSH_USER@$SSH_HOST "pm2 restart qmau && redis-cli flushall"
+            ssh $SSH_USER@$SSH_HOST "cd /root/qmau.me-amp && git pull origin master && pm2 restart qmau && redis-cli flushall"
 
 workflows:
   version: 2
