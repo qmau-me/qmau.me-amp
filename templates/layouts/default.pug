@@ -9,12 +9,7 @@ html(⚡='' lang="vi-VN")
     script(async='', custom-element='amp-sidebar', src='https://cdn.ampproject.org/v0/amp-sidebar-0.1.js')
     script(async='', custom-element='amp-analytics', src='https://cdn.ampproject.org/v0/amp-analytics-0.1.js')
     script(async='', custom-element='amp-install-serviceworker', src='https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js')
-    script(async='', src='//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js')
-    script.
-      (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-1042320174446964",
-      enable_page_level_ads: true
-      });
+    script(async='', custom-element='amp-auto-ads', src='https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js')
     link(rel='manifest', href='/manifest.json')
     link(rel='apple-touch-icon', sizes='72x72', href='/images/icons/icon-72x72.png')
     link(rel='apple-touch-icon', sizes='96x96', href='/images/icons/icon-96x96.png')
@@ -57,6 +52,7 @@ html(⚡='' lang="vi-VN")
       {"@context":"http://schema.org","@type":"Blog","name":"Blog của Mầu - qmau.me","description":"Hành trình của một lập trình viên tại Nhật Bản 🗼 với cốc ☕ Bạc xỉu dành cho những ý tưởng nghiêm túc và vài chút 🍵 Trà đá bên dăm ba mẩu chuyện vỉa hè.","author":{"@context":"http://schema.org","@type":"Person","name":"Mau Ha Quang","url":"https://www.qmau.me","sameAs":["https://www.facebook.com/qmau94","https://www.github.com/qmau94","https://twitter.com/qmau94","https://www.linkedin.com/in/qmau94/"]},"publisher":{"@type":"Organization","name":"qmau.me","logo":{"@type":"ImageObject","url":"https://qmau.me/logo.png"}},"license":"https://creativecommons.org/licenses/by-nc-nd/4.0/"}
     block head
   body
+    amp-auto-ads(type='adsense', data-ad-client='ca-pub-1042320174446964')
     // Start Navbar
     header.ampstart-headerbar.fixed.flex.justify-start.items-center.top-0.left-0.right-0.pl2.pr4
       .ampstart-navbar-trigger.md-hide.lg-hide.pr2(role='button', on='tap:header-sidebar.toggle', tabindex='0') ☰
