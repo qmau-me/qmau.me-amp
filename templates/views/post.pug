@@ -27,8 +27,8 @@ block head
   meta(property='og:url', content='https://qmau.me/blog/post/' + data.post.slug)
   meta(property='og:description', content= data.post.content.brief.md )
   meta(property='og:site_name', content='Blog của Mầu - qmau.me')
-  link(href='https://fonts.googleapis.com/css?family=Inconsolata|Montserrat', rel='stylesheet')
-  link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic')
+  link(href='https://fonts.googleapis.com/css?family=Inconsolata|Montserrat&font-display=swap', rel='stylesheet')
+  link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic&font-display=swap')
   script(type='application/ld+json').
     {"@context":"http://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"Blog","@id":"https://qmau.me"},"headline":"#{data.post.title}","image":"https://qmau.me#{data.post.image.url}","datePublished":"#{data.post.publishedDate}","dateModified":"#{data.post.publishedDate}","author":{"@context":"http://schema.org","@type":"Person","name":"Mau Ha Quang","url":"https://www.qmau.me","sameAs":["https://www.facebook.com/qmau94","https://www.github.com/qmau94","https://twitter.com/qmau94","https://www.linkedin.com/in/qmau94/"]},"publisher":{"@type":"Organization","name":"qmau.me","logo":{"@type":"ImageObject","url":"https://qmau.me/logo.png"}},"description":"#{data.post.content.brief.md}"}
   +amp-style
