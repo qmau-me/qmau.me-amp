@@ -20,7 +20,6 @@ block head
   meta(name='twitter:image', content= "https://qmau.me" + data.post.image.url)
   meta(name='twitter:image:alt', content='Blog của Mầu - qmau.me')
   // Open Graph data
-
   meta(property='og:title', content= data.post.title + " - qmau.me")
   meta(property='og:type', content='article')
   meta(property='og:image', content= "https://qmau.me" + data.post.image.url)
@@ -57,17 +56,18 @@ block body
                 code ##{tag.name}
               =" "
         section.www-component-desc
+          p.mb2.px4
+            amp-facebook-like(width='90', height='20', layout='fixed', data-layout='button_count', data-size='large', data-show_faces='true', data-href='https://qmau.me/blog/post/' + data.post.slug)
           p.mb2.px1
             amp-web-push#amp-web-push(layout='nodisplay', helper-iframe-url='https://qmau.me/amp-helper-frame.html?appId=1d2e91e5-373c-4750-9b9d-4e68e2361b6b', permission-dialog-url='https://qmau.me/amp-permission-dialog.html?appId=1d2e91e5-373c-4750-9b9d-4e68e2361b6b', service-worker-url='https://qmau.me/OneSignalSDKWorker.js?appId=1d2e91e5-373c-4750-9b9d-4e68e2361b6b')
-              amp-web-push-widget(visibility='unsubscribed', layout='fixed', width='245', height='45')
-                button.subscribe(on='tap:amp-web-push.subscribe')
-                  amp-img.subscribe-icon(width='24', height='24', layout='fixed', src='data:image/svg+xml;base64,PHN2ZyBjbGFzcz0ic3Vic2NyaWJlLWljb24iIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0xMS44NCAxOS44ODdIMS4yMnMtLjk0Ny0uMDk0LS45NDctLjk5NWMwLS45LjgwNi0uOTQ4LjgwNi0uOTQ4czMuMTctMS41MTcgMy4xNy0yLjYwOGMwLTEuMDktLjUyLTEuODUtLjUyLTYuMzA1czIuODUtNy44NyA2LjI2LTcuODdjMCAwIC40NzMtMS4xMzQgMS44NS0xLjEzNCAxLjMyNSAwIDEuOCAxLjEzNyAxLjggMS4xMzcgMy40MTMgMCA2LjI2IDMuNDE4IDYuMjYgNy44NyAwIDQuNDYtLjQ3NyA1LjIyLS40NzcgNi4zMSAwIDEuMDkgMy4xNzYgMi42MDcgMy4xNzYgMi42MDdzLjgxLjA0Ni44MS45NDdjMCAuODUzLS45OTYuOTk1LS45OTYuOTk1SDExLjg0ek04IDIwLjk3N2g3LjExcy0uNDkgMi45ODctMy41MyAyLjk4N1M4IDIwLjk3OCA4IDIwLjk3OHoiIGZpbGw9IiNGRkYiLz48L3N2Zz4=')
-                  | SUBSCRIBE TO 光
-              // An unsubscription widget
-              amp-web-push-widget(visibility='subscribed', layout='fixed', width='230', height='45')
-                button.unsubscribe(on='tap:amp-web-push.unsubscribe') Unsubscribe from 光
-            amp-facebook-like(width='90', height='20', layout='fixed', data-layout='button_count', data-href='https://qmau.me/blog/post/' + data.post.slug)
-            br
+            amp-web-push-widget(visibility='unsubscribed', layout='fixed', width='300', height='45')
+              button.subscribe(on='tap:amp-web-push.subscribe')
+                amp-img.subscribe-icon(width='24', height='24', layout='fixed', src='data:image/svg+xml;base64,PHN2ZyBjbGFzcz0ic3Vic2NyaWJlLWljb24iIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0xMS44NCAxOS44ODdIMS4yMnMtLjk0Ny0uMDk0LS45NDctLjk5NWMwLS45LjgwNi0uOTQ4LjgwNi0uOTQ4czMuMTctMS41MTcgMy4xNy0yLjYwOGMwLTEuMDktLjUyLTEuODUtLjUyLTYuMzA1czIuODUtNy44NyA2LjI2LTcuODdjMCAwIC40NzMtMS4xMzQgMS44NS0xLjEzNCAxLjMyNSAwIDEuOCAxLjEzNyAxLjggMS4xMzcgMy40MTMgMCA2LjI2IDMuNDE4IDYuMjYgNy44NyAwIDQuNDYtLjQ3NyA1LjIyLS40NzcgNi4zMSAwIDEuMDkgMy4xNzYgMi42MDcgMy4xNzYgMi42MDdzLjgxLjA0Ni44MS45NDdjMCAuODUzLS45OTYuOTk1LS45OTYuOTk1SDExLjg0ek04IDIwLjk3N2g3LjExcy0uNDkgMi45ODctMy41MyAyLjk4N1M4IDIwLjk3OCA4IDIwLjk3OHoiIGZpbGw9IiNGRkYiLz48L3N2Zz4=')
+                | THEO DÕI NHÉ ĐỒNG CHÍ!
+            // An unsubscription widget
+            amp-web-push-widget(visibility='subscribed', layout='fixed', width='230', height='45')
+              button.unsubscribe(on='tap:amp-web-push.unsubscribe') Bỏ theo dõi
+          p.mb2.px1
             amp-social-share(type='email')
             amp-social-share(type='facebook', data-param-app_id='1732945056797326')
             amp-social-share(type='linkedin')

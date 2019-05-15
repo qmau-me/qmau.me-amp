@@ -47,15 +47,6 @@ block body
       article.www-components.flex-auto.col-8
         section#lastestposts.www-component-desc
           h2.www-heading.pb4.mb2.relative Lastest post
-            amp-web-push#amp-web-push(layout='nodisplay', helper-iframe-url='https://qmau.me/amp-helper-frame.html?appId=1d2e91e5-373c-4750-9b9d-4e68e2361b6b', permission-dialog-url='https://qmau.me/amp-permission-dialog.html?appId=1d2e91e5-373c-4750-9b9d-4e68e2361b6b', service-worker-url='https://qmau.me/OneSignalSDKWorker.js?appId=1d2e91e5-373c-4750-9b9d-4e68e2361b6b')
-            amp-web-push-widget(visibility='unsubscribed', layout='fixed', width='245', height='45')
-              button.subscribe(on='tap:amp-web-push.subscribe')
-                amp-img.subscribe-icon(width='24', height='24', layout='fixed', src='data:image/svg+xml;base64,PHN2ZyBjbGFzcz0ic3Vic2NyaWJlLWljb24iIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0xMS44NCAxOS44ODdIMS4yMnMtLjk0Ny0uMDk0LS45NDctLjk5NWMwLS45LjgwNi0uOTQ4LjgwNi0uOTQ4czMuMTctMS41MTcgMy4xNy0yLjYwOGMwLTEuMDktLjUyLTEuODUtLjUyLTYuMzA1czIuODUtNy44NyA2LjI2LTcuODdjMCAwIC40NzMtMS4xMzQgMS44NS0xLjEzNCAxLjMyNSAwIDEuOCAxLjEzNyAxLjggMS4xMzcgMy40MTMgMCA2LjI2IDMuNDE4IDYuMjYgNy44NyAwIDQuNDYtLjQ3NyA1LjIyLS40NzcgNi4zMSAwIDEuMDkgMy4xNzYgMi42MDcgMy4xNzYgMi42MDdzLjgxLjA0Ni44MS45NDdjMCAuODUzLS45OTYuOTk1LS45OTYuOTk1SDExLjg0ek04IDIwLjk3N2g3LjExcy0uNDkgMi45ODctMy41MyAyLjk4N1M4IDIwLjk3OCA4IDIwLjk3OHoiIGZpbGw9IiNGRkYiLz48L3N2Zz4=')
-                | SUBSCRIBE TO 光
-            // An unsubscription widget
-            amp-web-push-widget(visibility='subscribed', layout='fixed', width='230', height='45')
-              button.unsubscribe(on='tap:amp-web-push.unsubscribe') Unsubscribe from 光
-
           .abe-examples.flex.flex-wrap
             if data.posts.length > 0
               each post in data.posts
@@ -64,6 +55,14 @@ block body
             .abe-sample-card.abe-sample-card-filler.flex-auto.px1.mr
             .abe-sample-card.abe-sample-card-filler.flex-auto.px1.mr
             .abe-sample-card.abe-sample-card-filler.flex-auto.px1.mr
+            amp-web-push#amp-web-push(layout='nodisplay', helper-iframe-url='https://qmau.me/amp-helper-frame.html?appId=1d2e91e5-373c-4750-9b9d-4e68e2361b6b', permission-dialog-url='https://qmau.me/amp-permission-dialog.html?appId=1d2e91e5-373c-4750-9b9d-4e68e2361b6b', service-worker-url='https://qmau.me/OneSignalSDKWorker.js?appId=1d2e91e5-373c-4750-9b9d-4e68e2361b6b')
+            amp-web-push-widget(visibility='unsubscribed', layout='fixed', width='300', height='45')
+              button.subscribe(on='tap:amp-web-push.subscribe')
+                amp-img.subscribe-icon(width='24', height='24', layout='fixed', src='data:image/svg+xml;base64,PHN2ZyBjbGFzcz0ic3Vic2NyaWJlLWljb24iIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0xMS44NCAxOS44ODdIMS4yMnMtLjk0Ny0uMDk0LS45NDctLjk5NWMwLS45LjgwNi0uOTQ4LjgwNi0uOTQ4czMuMTctMS41MTcgMy4xNy0yLjYwOGMwLTEuMDktLjUyLTEuODUtLjUyLTYuMzA1czIuODUtNy44NyA2LjI2LTcuODdjMCAwIC40NzMtMS4xMzQgMS44NS0xLjEzNCAxLjMyNSAwIDEuOCAxLjEzNyAxLjggMS4xMzcgMy40MTMgMCA2LjI2IDMuNDE4IDYuMjYgNy44NyAwIDQuNDYtLjQ3NyA1LjIyLS40NzcgNi4zMSAwIDEuMDkgMy4xNzYgMi42MDcgMy4xNzYgMi42MDdzLjgxLjA0Ni44MS45NDdjMCAuODUzLS45OTYuOTk1LS45OTYuOTk1SDExLjg0ek04IDIwLjk3N2g3LjExcy0uNDkgMi45ODctMy41MyAyLjk4N1M4IDIwLjk3OCA4IDIwLjk3OHoiIGZpbGw9IiNGRkYiLz48L3N2Zz4=')
+                | THEO DÕI NHÉ ĐỒNG CHÍ!
+            // An unsubscription widget
+            amp-web-push-widget(visibility='subscribed', layout='fixed', width='230', height='45')
+              button.unsubscribe(on='tap:amp-web-push.unsubscribe') Bỏ theo dõi
         section#series.www-component-desc
           h2.www-heading.pb4.mb2.relative Series
           .mb4
