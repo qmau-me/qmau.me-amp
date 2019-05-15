@@ -47,14 +47,7 @@ block body
       article.www-components.flex-auto.col-8
         section#lastestposts.www-component-desc
           h2.www-heading.pb4.mb2.relative Lastest post
-          .abe-examples.flex.flex-wrap
-            if data.posts.length > 0
-              each post in data.posts
-                +post(post)
-            .abe-sample-card.abe-sample-card-filler.flex-auto.px1.mr
-            .abe-sample-card.abe-sample-card-filler.flex-auto.px1.mr
-            .abe-sample-card.abe-sample-card-filler.flex-auto.px1.mr
-            .abe-sample-card.abe-sample-card-filler.flex-auto.px1.mr
+          p
             amp-web-push#amp-web-push(layout='nodisplay', helper-iframe-url='https://qmau.me/amp-helper-frame.html?appId=1d2e91e5-373c-4750-9b9d-4e68e2361b6b', permission-dialog-url='https://qmau.me/amp-permission-dialog.html?appId=1d2e91e5-373c-4750-9b9d-4e68e2361b6b', service-worker-url='https://qmau.me/OneSignalSDKWorker.js?appId=1d2e91e5-373c-4750-9b9d-4e68e2361b6b')
             amp-web-push-widget(visibility='unsubscribed', layout='fixed', width='300', height='45')
               button.subscribe(on='tap:amp-web-push.subscribe')
@@ -63,6 +56,14 @@ block body
             // An unsubscription widget
             amp-web-push-widget(visibility='subscribed', layout='fixed', width='230', height='45')
               button.unsubscribe(on='tap:amp-web-push.unsubscribe') Bỏ theo dõi
+          .abe-examples.flex.flex-wrap
+            if data.posts.length > 0
+              each post in data.posts
+                +post(post)
+            .abe-sample-card.abe-sample-card-filler.flex-auto.px1.mr
+            .abe-sample-card.abe-sample-card-filler.flex-auto.px1.mr
+            .abe-sample-card.abe-sample-card-filler.flex-auto.px1.mr
+            .abe-sample-card.abe-sample-card-filler.flex-auto.px1.mr
         section#series.www-component-desc
           h2.www-heading.pb4.mb2.relative Series
           .mb4
