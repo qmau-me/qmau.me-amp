@@ -38,13 +38,13 @@ var routes = {
 exports = module.exports = function (app) {
 
 	// Views
-	app.get('/', cache.route({ expire: 3600 }), routes.views.index);
-	app.get('/tag/:tag?', cache.route({ expire: 3600 }), routes.views.tag);
-	app.get('/blog/:category?', cache.route({ expire: 3600 }), routes.views.blog);
-	app.get('/blog/post/:post', cache.route({ expire: 3600 }), routes.views.post);
-	app.get('/about', cache.route({ expire: 3600 }), routes.views.about);
-	app.get('/bucket-list', cache.route({ expire: 3600 }), routes.views.list);
-	app.get('/tos', cache.route({ expire: 3600 }), routes.views.tos);
+	app.get('/', routes.views.index);
+	app.get('/tag/:tag?', routes.views.tag);
+	app.get('/blog/:category?', routes.views.blog);
+	app.get('/blog/post/:post', routes.views.post);
+	app.get('/about', routes.views.about);
+	app.get('/bucket-list', routes.views.list);
+	app.get('/tos', routes.views.tos);
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
 
