@@ -4,7 +4,7 @@ var urlsToCache = [
 	'/about',
 	'/bucket-list',
 	'/tag/blog',
-	'/blog/devinjap',
+	'/blog/devinjpn',
 	'/blog/bac-xiu',
 	'/blog/tra-da',
 	'/tag/rest',

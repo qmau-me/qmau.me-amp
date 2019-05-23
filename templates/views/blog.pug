@@ -4,7 +4,7 @@ include ../mixins/sidebar
 
 block head
   case data.category.key
-    when "devinjap"
+    when "devinjpn"
       title #{data.category.name} - 🗼 Hành trình tại Nhật Bản - qmau.me
       meta(name='description', content= "🗼 Hành trình tại Nhật Bản - qmau.me | Blog của Mầu" )
       meta(property='og:description', content= "🗼 Hành trình tại Nhật Bản - qmau.me | Blog của Mầu")
@@ -49,7 +49,7 @@ block body
         | #{data.category.name}
       .www-index-header-action.mx-auto
       case data.category.key
-        when "devinjap"
+        when "devinjpn"
           | Hành trình tại Nhật Bản 🇯🇵
         when "bac-xiu"
           | Góc nghiêm túc ☕
