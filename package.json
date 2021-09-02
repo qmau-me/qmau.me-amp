@@ -22,7 +22,7 @@
     "mime": "1.4.1",
     "moment": "2.19.3",
     "morgan": ">=1.9.1",
-    "mpath": ">=0.5.1",
+    "mpath": ">=0.8.4",
     "node.extend": ">=2.0.1",
     "pug": "2.0.0-beta11",
     "superagent": "3.7.0",
