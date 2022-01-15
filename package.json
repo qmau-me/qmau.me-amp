@@ -30,7 +30,7 @@
     "yarn": ">=1.17.3",
     "yql": "^1.0.2",
     "js-yaml": ">=3.13.1",
-    "marked": ">=0.3.18",
+    "marked": ">=4.0.10",
     "clean-css": ">=4.1.11",
     "braces": ">=2.3.1",
     "constantinople": ">=3.1.1",
@@ -46,7 +46,7 @@
     "eslint": "3.15.0",
     "eslint-config-keystone": "3.0.0",
     "eslint-plugin-react": "^5.1.1",
-    "marked": "^0.3.12",
+    "marked": "^4.0.10",
     "sw-precache": "^5.2.1"
   },
   "scripts": {
