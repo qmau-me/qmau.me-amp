@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "async": "2.1.4",
+    "async": "2.6.4",
     "cached-path-relative": ">=1.0.2",
     "cryptiles": "4.1.2",
     "dotenv": "4.0.0",
