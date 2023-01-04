@@ -16,7 +16,7 @@
     "hoek": "4.2.1",
     "jquery": ">=3.4.0",
     "jquery-asProgress": "^0.2.4",
-    "keystone": "^4.0.0",
+    "keystone": "^4.2.1",
     "lodash": ">=4.17.13",
     "merge": ">=1.2.1",
     "mime": "1.4.1",
